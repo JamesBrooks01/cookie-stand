@@ -8,6 +8,7 @@ function randomCustomerCount(min, max) {
 let timeSheet = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm',];
 
 let seattleSales = {
+  storeName: 'Seattle',
   minCust: 23,
   maxCust: 65,
   avgCookie: 6.3,
@@ -26,6 +27,7 @@ let seattleSales = {
   },
 };
 let tokyoSales = {
+  storeName: 'Tokyo',
   minCust: 3,
   maxCust: 24,
   avgCookie: 1.2,
@@ -43,6 +45,7 @@ let tokyoSales = {
   },
 };
 let dubaiSales = {
+  storeName: 'Dubai',
   minCust: 11,
   maxCust: 38,
   avgCookie: 3.7,
@@ -60,6 +63,7 @@ let dubaiSales = {
   },
 };
 let parisSales = {
+  storeName: 'Paris',
   minCust: 20,
   maxCust: 38,
   avgCookie: 2.3,
@@ -77,6 +81,7 @@ let parisSales = {
   },
 };
 let limaSales = {
+  storeName: 'Lima',
   minCust: 2,
   maxCust: 16,
   avgCookie: 4.6,
@@ -99,7 +104,7 @@ let locations = ['Seattle', 'Tokyo', 'Dubai', 'Paris', 'Lima'];
 
 seattleSales.render = function () {
   let h2Elem = document.createElement('h2');
-  h2Elem.textContent = (`${locations[0]}:`);
+  h2Elem.textContent = this.storeName;
   salesSection.appendChild(h2Elem);
   let ulElem = document.createElement('ul');
   salesSection.appendChild(ulElem);
@@ -113,7 +118,7 @@ seattleSales.render = function () {
 
 tokyoSales.render = function () {
   let h2Elem = document.createElement('h2');
-  h2Elem.textContent = (`${locations[1]}:`);
+  h2Elem.textContent = this.storeName;
   salesSection.appendChild(h2Elem);
   let ulElem = document.createElement('ul');
   salesSection.appendChild(ulElem);
@@ -127,7 +132,7 @@ tokyoSales.render = function () {
 
 dubaiSales.render = function () {
   let h2Elem = document.createElement('h2');
-  h2Elem.textContent = (`${locations[2]}:`);
+  h2Elem.textContent = this.storeName;
   salesSection.appendChild(h2Elem);
   let ulElem = document.createElement('ul');
   salesSection.appendChild(ulElem);
@@ -141,7 +146,7 @@ dubaiSales.render = function () {
 
 parisSales.render = function () {
   let h2Elem = document.createElement('h2');
-  h2Elem.textContent = (`${locations[3]}:`);
+  h2Elem.textContent = this.storeName;
   salesSection.appendChild(h2Elem);
   let ulElem = document.createElement('ul');
   salesSection.appendChild(ulElem);
@@ -155,7 +160,7 @@ parisSales.render = function () {
 
 limaSales.render = function () {
   let h2Elem = document.createElement('h2');
-  h2Elem.textContent = (`${locations[4]}:`);
+  h2Elem.textContent = this.storeName;
   salesSection.appendChild(h2Elem);
   let ulElem = document.createElement('ul');
   salesSection.appendChild(ulElem);
@@ -201,4 +206,3 @@ function renderAllCities() {
   }
 }
 renderAllCities();
-
