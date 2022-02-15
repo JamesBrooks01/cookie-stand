@@ -1,0 +1,7 @@
+li {
+  list-style: disc;
+  list-style-position: inside;
+}
+ul {
+  margin: 1vh;
+}
