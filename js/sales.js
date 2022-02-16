@@ -100,7 +100,7 @@ function sumTotalArray(a) {
 }
 
 function sumTotalCalc() {
-  for(let i =0; i < 15; i++){
+  for(let i =0; i <= 14; i++){
     sumTotalArray(i);
   }
 }
