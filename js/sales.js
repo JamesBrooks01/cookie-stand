@@ -6,6 +6,8 @@ function randomCustomerCount(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 let timeSheet = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm',];
+let storeLocations = [];
+let totalSalesArray = [];
 
 function StoreLoc(storeName, minCust, maxCust, avgCookie) {
   this.storeName = storeName;
@@ -17,18 +19,31 @@ function StoreLoc(storeName, minCust, maxCust, avgCookie) {
   storeLocations.push(this);
 }
 
-randomCust: function () {
+StoreLoc.prototype.randomCust = function () {
   this.customerCount = randomCustomerCount(this.minCust, this.maxCust);
-};
+},
 
-cookieSales: function () {
-  for (let i = 0; i < timeSheet.length; i++) {
+StoreLoc.prototype.cookieSales = function () {
+  for (let i = 0; i < timeSheet.length - 1; i++) {
     let cookieSales = this.customerCount * this.avgCookie;
     this.cookieSalesArray.push(Math.floor(cookieSales));
     this.randomCust();
   }
-  this.cookieSalesArray.push();
 };
+
+StoreLoc.prototype.render = function () {
+  let row = document.createElement('tr');
+  salesTable.appendChild(row);
+  let storeNameEle = document.createElement('th');
+  storeNameEle.textContent = this.storeName;
+  row.appendChild(storeNameEle);
+  for (let i = 0; i < this.cookieSalesArray.length; i++) {
+    let salesData = document.createElement('td');
+    salesData.textContent = `${this.cookieSalesArray[i]} cookies`;
+    row.appendChild(salesData);
+  }
+};
+
 
 function sum(a, b) {
   let answer1 = a + b;
