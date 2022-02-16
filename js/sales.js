@@ -59,53 +59,73 @@ function timeRow() {
 
 }
 
-function sum(a, b) {
-  let answer1 = a + b;
-  let array1 = [answer1, `The sum of ${a} and ${b} is ${a + b}.`];
-  return array1;
-}
 
-function sumAnyArray(a) {
-  let answerSumArr = [];
-  for (let i = 0; i <= a.cookieSalesArray.length - 3; i++) {
-    let sumOne = sum(a.cookieSalesArray[i], a.cookieSalesArray[i + 1])[0];
-    answerSumArr.splice(0, 1, sumOne);
-    let sumTwo = sum(answerSumArr[i], a.cookieSalesArray[i + 2])[0];
-    answerSumArr.push(sumTwo);
+// Old Code
+//function sum(a, b) {
+//   let answer1 = a + b;
+//   let array1 = [answer1, `The sum of ${a} and ${b} is ${a + b}.`];
+//   return array1;
+// }
+//function sumAnyArray(a) {
+//   let answerSumArr = [];
+//   for (let i = 0; i <= a.cookieSalesArray.length - 3; i++) {
+//     let sumOne = sum(a.cookieSalesArray[i], a.cookieSalesArray[i + 1])[0];
+//     answerSumArr.splice(0, 1, sumOne);
+//     let sumTwo = sum(answerSumArr[i], a.cookieSalesArray[i + 2])[0];
+//     answerSumArr.push(sumTwo);
+//   }
+//   answerSumArr.splice(0, 1, sum(a.cookieSalesArray[0], a.cookieSalesArray[1])[0]);
+//   let lastValue = answerSumArr[answerSumArr.length - 1];
+//   let array6 = [lastValue, `The numbers ${a.cookieSalesArray} have a product of ${lastValue}.`];
+//   a.cookieSalesArray.push(lastValue);
+//   totalSalesArray.push(a.cookieSalesArray);
+//   //console.table(array6);
+//   return array6;
+// }
+
+// function sumTotalArray(a) {
+//   let answerSumArr = [];
+//   let b = 0;
+//   for (let i = 0; i <= totalSalesArray.length - 3; i++) {
+//     let sumOne = sum(totalSalesArray[b][a], totalSalesArray[b + 1][a])[0];
+//     answerSumArr.splice(0, 1, sumOne);
+//     let sumTwo = sum(answerSumArr[b], totalSalesArray[b + 2][a])[0];
+//     answerSumArr.push(sumTwo);
+//     b++;
+//   }
+//   let lastValue = answerSumArr[answerSumArr.length - 1];
+//   let array6 = [lastValue, `The numbers ${a.cookieSalesArray} have a product of ${lastValue}.`];
+//   //console.log(totalValues);
+//   totalValues.push(lastValue);
+//   return array6;
+// }
+
+// function sumTotalCalc() {
+//   for (let i = 0; i <= 14; i++) {
+//     sumTotalArray(i);
+//   }
+// }
+
+function reworkedSumArray(a) {
+  let total = 0;
+  for (let i = 0; i < a.cookieSalesArray.length; i++) {
+    total += a.cookieSalesArray[i];
   }
-  answerSumArr.splice(0, 1, sum(a.cookieSalesArray[0], a.cookieSalesArray[1])[0]);
-  let lastValue = answerSumArr[answerSumArr.length - 1];
-  let array6 = [lastValue, `The numbers ${a.cookieSalesArray} have a product of ${lastValue}.`];
-  a.cookieSalesArray.push(lastValue);
+  a.cookieSalesArray.push(total);
   totalSalesArray.push(a.cookieSalesArray);
-  //console.table(array6);
-  return array6;
 }
 
-function sumTotalArray(a) {
-  let answerSumArr = [];
-  let b = 0;
-  for (let i = 0; i <= totalSalesArray.length - 3; i++) {
-    let sumOne = sum(totalSalesArray[b][a], totalSalesArray[b + 1][a])[0];
-    answerSumArr.splice(0, 1, sumOne);
-    let sumTwo = sum(answerSumArr[b], totalSalesArray[b + 2][a])[0];
-    answerSumArr.push(sumTwo);
-    b++;
-  }
-  let lastValue = answerSumArr[answerSumArr.length - 1];
-  let array6 = [lastValue, `The numbers ${a.cookieSalesArray} have a product of ${lastValue}.`];
-  //console.log(totalValues);
-  totalValues.push(lastValue);
-  return array6;
-}
-
-function sumTotalCalc() {
-  for(let i =0; i < 15; i++){
-    sumTotalArray(i);
+function reworkedTotalArray() {
+  for (let i = 0; i <= 14; i++) {
+    let totalArray = 0;
+    for (let b = 0; b < totalSalesArray.length - 3; b++) {
+      totalArray += totalSalesArray[b][i];
+    }
+    totalValues.push(totalArray);
   }
 }
 
-function totalRow(){
+function totalRow() {
   let totalRow = document.createElement('tr');
   salesTable.appendChild(totalRow);
   let totalElem = document.createElement('th');
@@ -130,10 +150,11 @@ function renderAllCities() {
     let currentCity = storeLocations[i];
     currentCity.randomCust();
     currentCity.cookieSales();
-    sumAnyArray(storeLocations[i]);
+    reworkedSumArray(storeLocations[i]);
     currentCity.render();
   }
-  sumTotalCalc();
+  reworkedTotalArray();
   totalRow();
 }
+
 renderAllCities();
