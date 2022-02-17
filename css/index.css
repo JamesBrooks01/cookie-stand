@@ -1,0 +1,146 @@
+/* Whole Document Styling */
+body {
+  background-color: #7851A9;
+  width: 1280px;
+  margin: auto;
+}
+
+/* Header Styling */
+
+nav {
+  background-color: #c79222;
+}
+nav div {
+  display: flex;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+nav li {
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #81A851;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding-top: 15px;
+  transition: 350ms;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
+li:hover {
+  background-color: white;
+}
+
+h1 {
+  height: 30px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  font-size: 36px;
+  background-color: #c79222;
+  color: rgb(212, 62, 61);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* Main Styling */
+
+#family {
+  width: 640px;
+  height: 358px;
+  float: right;
+}
+section {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+section div {
+  display: flex;
+}
+section div div {
+  display: flex;
+  flex-direction: column;
+  width: 630px;
+  margin-left: 10px;
+}
+section div p:nth-of-type(1) {
+  margin-top: 20px;
+  margin-right: 10px;
+  font-size: 24px;
+  text-align: center;
+  background-color: #c79222;
+}
+
+section div p:nth-of-type(2) {
+  margin-top: 20px;
+  margin-right: 10px;
+  font-size: 24px;
+  text-align: center;
+  background-color: #c79222;
+}
+
+#storeLocations {
+  display: flex;
+  justify-content: space-around;
+  height: 200px;
+  background-color: #c79222;
+  
+}
+
+#storeLocations p {
+  background-color: #81A851;
+  width: 125px;
+  font-size: 18px;
+  padding-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#storeLocations ul {
+  background-color: #81A851;
+  width: max-content;
+  padding-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+#images-caption {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 20px;
+}
+
+#shirt-caption {
+  margin-left: 75%;
+  margin-right: 10px;
+  margin-top: 10px;
+  background-color: #c79222;
+  font-size: 20px;
+  width: 300px;
+}
+
+#chinook {
+  width: 1260px;
+  height: 466px;
+}
+
+/* Footer Styling */
+
+footer {
+  height: 200px;
+  background-color: #c79222;
+}
