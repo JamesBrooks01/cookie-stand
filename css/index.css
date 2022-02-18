@@ -69,7 +69,7 @@ section div {
   display: flex;
 }
 section div div {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   width: 630px;
   margin-left: 10px;
