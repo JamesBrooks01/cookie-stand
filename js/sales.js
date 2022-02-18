@@ -1,6 +1,7 @@
 'use strict';
 
 let salesTable = document.getElementById('salesTable');
+let storeForm = document.getElementById('new-stores');
 
 function randomCustomerCount(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -59,53 +60,6 @@ function timeRow() {
 
 }
 
-
-// Old Code
-//function sum(a, b) {
-//   let answer1 = a + b;
-//   let array1 = [answer1, `The sum of ${a} and ${b} is ${a + b}.`];
-//   return array1;
-// }
-//function sumAnyArray(a) {
-//   let answerSumArr = [];
-//   for (let i = 0; i <= a.cookieSalesArray.length - 3; i++) {
-//     let sumOne = sum(a.cookieSalesArray[i], a.cookieSalesArray[i + 1])[0];
-//     answerSumArr.splice(0, 1, sumOne);
-//     let sumTwo = sum(answerSumArr[i], a.cookieSalesArray[i + 2])[0];
-//     answerSumArr.push(sumTwo);
-//   }
-//   answerSumArr.splice(0, 1, sum(a.cookieSalesArray[0], a.cookieSalesArray[1])[0]);
-//   let lastValue = answerSumArr[answerSumArr.length - 1];
-//   let array6 = [lastValue, `The numbers ${a.cookieSalesArray} have a product of ${lastValue}.`];
-//   a.cookieSalesArray.push(lastValue);
-//   totalSalesArray.push(a.cookieSalesArray);
-//   //console.table(array6);
-//   return array6;
-// }
-
-// function sumTotalArray(a) {
-//   let answerSumArr = [];
-//   let b = 0;
-//   for (let i = 0; i <= totalSalesArray.length - 3; i++) {
-//     let sumOne = sum(totalSalesArray[b][a], totalSalesArray[b + 1][a])[0];
-//     answerSumArr.splice(0, 1, sumOne);
-//     let sumTwo = sum(answerSumArr[b], totalSalesArray[b + 2][a])[0];
-//     answerSumArr.push(sumTwo);
-//     b++;
-//   }
-//   let lastValue = answerSumArr[answerSumArr.length - 1];
-//   let array6 = [lastValue, `The numbers ${a.cookieSalesArray} have a product of ${lastValue}.`];
-//   //console.log(totalValues);
-//   totalValues.push(lastValue);
-//   return array6;
-// }
-
-// function sumTotalCalc() {
-//   for (let i = 0; i <= 14; i++) {
-//     sumTotalArray(i);
-//   }
-// }
-
 function reworkedSumArray(a) {
   let total = 0;
   for (let i = 0; i < a.cookieSalesArray.length; i++) {
@@ -118,7 +72,7 @@ function reworkedSumArray(a) {
 function reworkedTotalArray() {
   for (let i = 0; i <= 14; i++) {
     let totalArray = 0;
-    for (let b = 0; b < totalSalesArray.length - 3; b++) {
+    for (let b = 0; b < totalSalesArray.length; b++) {
       totalArray += totalSalesArray[b][i];
     }
     totalValues.push(totalArray);
@@ -144,6 +98,36 @@ new StoreLoc('Dubai', 11, 38, 3.7);
 new StoreLoc('Paris', 20, 38, 2.3);
 new StoreLoc('Lima', 2, 16, 4.6);
 
+function newCityTest() {
+  totalValues = [];
+  // new StoreLoc('Genoa', 4, 30, 4.8);
+  let lastLocation = storeLocations[storeLocations.length -1];
+  let currentCity = lastLocation;
+  salesTable.deleteRow(-1);
+  currentCity.randomCust();
+  currentCity.cookieSales();
+  reworkedSumArray(currentCity);
+  currentCity.render();
+  reworkedTotalArray();
+  totalRow();
+}
+
+function handleSubmit(event){
+  event.preventDefault();
+  console.log('submit');
+  let storeName = event.target.storeName.value;
+  console.log('Store Name', storeName);
+  let minCust = +event.target.minCust.value;
+  console.log('Minimum Number of Customers', minCust);
+  let maxCust = +event.target.maxCust.value;
+  console.log('Maximum Number of Cutomers', maxCust);
+  let avgCookie = +event.target.avgCookie.value;
+  console.log('Average Cookies', avgCookie);
+  storeForm.reset();
+  new StoreLoc(storeName,minCust,maxCust,avgCookie);
+  newCityTest();
+}
+
 function renderAllCities() {
   timeRow();
   for (let i = 0; i < storeLocations.length; i++) {
@@ -155,6 +139,9 @@ function renderAllCities() {
   }
   reworkedTotalArray();
   totalRow();
+
 }
 
+
 renderAllCities();
+storeForm.addEventListener('submit',handleSubmit);
