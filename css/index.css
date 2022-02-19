@@ -9,6 +9,7 @@ body {
 
 nav {
   background-color: #c79222;
+  font-family: Arial, Helvetica, sans-serif;
 }
 nav div {
   display: flex;
@@ -17,6 +18,7 @@ nav div {
 nav ul {
   display: flex;
   justify-content: space-around;
+  font-size: 16px;
 }
 nav li {
   width: 150px;
@@ -33,8 +35,9 @@ nav li {
 
 a {
   text-decoration: none;
-  color: black;
   text-align: center;
+  color: rgb(212, 62, 61);
+  -webkit-text-stroke: .5px black;
 }
 
 li:hover {
@@ -52,15 +55,21 @@ h1 {
   margin-top: 10px;
   margin-bottom: 10px;
   position: relative;
+  font-family: 'VT323', monospace;
 }
 
 /* Main Styling */
+
+main {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 #family {
   width: 640px;
   height: 358px;
   float: right;
 }
+
 section {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -75,11 +84,12 @@ section div div {
   margin-left: 10px;
 }
 section div p:nth-of-type(1) {
-  margin-top: 20px;
+  margin-top: 0px;
   margin-right: 10px;
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
   background-color: #c79222;
+  padding: 20px;
 }
 
 section div p:nth-of-type(2) {
@@ -88,6 +98,8 @@ section div p:nth-of-type(2) {
   font-size: 24px;
   text-align: center;
   background-color: #c79222;
+  height: 50px;
+  padding-top: 20px;
 }
 
 #storeLocations {
@@ -100,11 +112,14 @@ section div p:nth-of-type(2) {
 
 #storeLocations p {
   background-color: #81A851;
-  width: 125px;
+  width: 150px;
   font-size: 18px;
   padding-top: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffff66;
 }
 
 #storeLocations ul {
@@ -114,8 +129,9 @@ section div p:nth-of-type(2) {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 18px;
+  text-align: center;
+  color: #ffff66;
 }
-
 #images-caption {
   display: flex;
   justify-content: space-between;
