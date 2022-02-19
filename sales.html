@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Salmon Cookie Sales</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/sales.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -29,13 +32,13 @@
       <label for="storeName">Store Name</label>
       <input type="text" name="storeName" id="storeName" required>
       <label for="avgCookie">Average Cookie Per Customers</label>
-      <input type="text" name="avgCookie" id="avgCookie" required pattern="[0-99]">
+      <input type="number" name="avgCookie" id="avgCookie" required pattern="[0-99]">
     </div>
     <div id="min-max">
       <label for="minCust">Minimum Customers</label>
-      <input type="text" name="minCust" id="minCust" required pattern="[0-99]">
+      <input type="number" name="minCust" id="minCust" required pattern="[0-99]">
       <label for="maxCust">Maximum Customers</label>
-      <input type="text" name="maxCust" id="maxCust" required pattern="[0-99]">
+      <input type="number" name="maxCust" id="maxCust" required pattern="[0-99]">
     </div>
     </fieldset>
     <button type="submit">Submit Data</button>
